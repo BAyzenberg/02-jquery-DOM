@@ -3,8 +3,12 @@
 var articles = [];
 
 function Article (opts) {
-  // TODO: Use the JS object passed in to complete this constructor function:
-  // Save ALL the properties of `opts` into `this`
+  this.title = opts.title;
+  this.category = opts.category;
+  this.author = opts.author;
+  this.authorUrl = opts.authorUrl;
+  this.publishedOn = opts.publishedOn;
+  this.body = opts.body;
 }
 
 Article.prototype.toHtml = function() {
@@ -27,7 +31,7 @@ Article.prototype.toHtml = function() {
     5. publication date. */
 
   // Display the date as a relative number of 'days ago'
-  $newArticle.find('time').html('about ' + parseInt((new Date() - new Date(this.publishedOn))/60/60/24/1000) + ' days ago');
+  $newArticle.find('time').html('about ' + parseInt((new Date() - new Date(this.publishedOn)) / 60 / 60 / 24 / 1000) + ' days ago');
   $newArticle.append('<hr>');
   return $newArticle;
 };
@@ -40,6 +44,7 @@ rawData.sort(function(a,b) {
 rawData.forEach(function(articleObject) {
   // REVIEW: Take a look at this forEach method; This may be the first time we've seen it.
   articles.push(new Article(articleObject));
+  console.dir(articles);
 });
 
 articles.forEach(function(a) {

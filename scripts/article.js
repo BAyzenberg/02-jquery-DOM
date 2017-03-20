@@ -46,7 +46,6 @@ rawData.sort(function(a,b) {
 rawData.forEach(function(articleObject) {
   // REVIEW: Take a look at this forEach method; This may be the first time we've seen it.
   articles.push(new Article(articleObject));
-  // console.table(articles);
 });
 
 articles.forEach(function(a) {
